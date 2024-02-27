@@ -38,7 +38,7 @@
         </tr>
         @{
             double remainingDays = Math.Round(Model.remainingTime.TotalDays, 1);
-            string color = remainingDays < 5 ? "red" : "green";
+            string color = remainingDays < 5 ? "red" : (remainingDays < 9 ? "yellow" : "green");
         }
         <tr style="background-color :@color">
             <td>Due Date</td>
