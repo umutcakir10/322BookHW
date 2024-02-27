@@ -1,0 +1,52 @@
+﻿@model Book
+
+
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            border: 1px solid #F0FFF0; /* //HoneyDew */
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #F8F8FF;  /* // GhostWhite */
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <td>Name</td>
+            <td>@Model.name</td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td>@Model.author</td>
+        </tr>
+        <tr>
+            <td>Page Number</td>
+            <td>@Model.page_number</td>
+        </tr>
+        @{
+            double remainingDays = Math.Round(Model.remainingTime.TotalDays, 1);
+            string color = remainingDays < 5 ? "red" : "green";
+        }
+        <tr style="background-color :@color">
+            <td>Due Date</td>
+
+            <td>@Math.Round(@Model.remainingTime.TotalDays, 1) gün</td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+</body>
+</html>
